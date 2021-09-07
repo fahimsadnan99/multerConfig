@@ -22,12 +22,13 @@ const multerStorage =  multer.diskStorage({
 
 
 
-module.exports =   multer({
+   module.exports =   multer(
+   {
     storage : multerStorage,
     limits : {
         fieldSize : 100000
     },
-    fileFilter:(req,file,cb)=>{
+     fileFilter:(req,file,cb)=>{
       if(file.fieldname === "file"){
           if(file.mimetype === "image/png" ||
           file.mimetype === "image/jpg" ||
@@ -39,4 +40,4 @@ module.exports =   multer({
       }
     }
 
-})
+   })
